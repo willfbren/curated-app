@@ -26,7 +26,7 @@ end
 20.times do
     Post.create(
         title: Faker::TvShows::SiliconValley.app,
-        description: Faker::Lorem.paragraph(sentence_count: 2),
+        description: Faker::Lorem.paragraph(sentence_count: 5),
         user_id: User.all.sample().id,
         project_id: Project.all.sample().id,
         category_id: Category.all.sample().id,
