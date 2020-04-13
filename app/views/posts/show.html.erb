@@ -1,0 +1,14 @@
+<h1><%=@post.title%></h1>
+<br>
+<label>Description:</labeL>
+<p><%=@post.description%></p>
+<br>
+
+
+<label> Comment Section: </label>
+<%@comments.map do |comment| %>
+<p><%=comment.content%></p>
+<%=User.find(comment.user_id).name%>
+<%end%>
+
+
