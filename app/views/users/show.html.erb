@@ -1,0 +1,13 @@
+<h1><%=@user.name%></h1>
+
+
+<label>Check out this User's Projects</label>
+<%@user.projects.each do |project|%>
+<p><%=link_to(project.title, project_path(project.id))%></p>
+<%end%>
+
+
+
+
+
+

@@ -9534,6 +9534,134 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 88ms (Views: 37.1ms | ActiveRecord: 3.2ms | Allocations: 23116)
 
 
+Started GET "/posts/182" for ::1 at 2020-04-13 11:31:26 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"182"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 182], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:18:in `show'
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 9.2ms | Allocations: 3661)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 2.6ms | Allocations: 15479)
+
+
+Started GET "/posts/182" for ::1 at 2020-04-13 11:31:46 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"182"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 182], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:18:in `show'
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1126)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 1956)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @post.title %></h1>
+<br>
+<label>Description:</labeL>
+<p><%=@post.description%></p>
+<br>
+
+
+<label> Comment Section: </label>
+<% @comments.map do |comment| %>
+<p><%= comment.content %></p>
+<%= comment.user.name %>
+<%end%>
+
+<%form_with (method: 'NEW', url: "/comments/new") do |form|%>
+<input type = "hidden" name = "post_id" value = <%=@post.id%>/>
+<%=form.submit("New Comment")%>
+<%end%>
+
+
+
+
+
+
+
+
+
+):
+1:    <h1><%= @post.title %></h1>
+2:    <br>
+3:    <label>Description:</labeL>
+4:    <p><%=@post.description%></p>
+5:    <br>
+6:    
+7:    
+8:    <label> Comment Section: </label>
+9:    <% @comments.map do |comment| %>
+10:    <p><%= comment.content %></p>
+11:    <%= comment.user.name %>
+12:    <%end%>
+13:    
+14:    <%form_with (method: 'NEW', url: "/comments/new") do |form|%>
+15:    <input type = "hidden" name = "post_id" value = <%=@post.id%>/>
+16:    <%=form.submit("New Comment")%>
+17:    <%end%>
+  
+app/views/posts/show.html.erb:14: syntax error, unexpected tLABEL, expecting ')'
+app/views/posts/show.html.erb:14: syntax error, unexpected ',', expecting end
+app/views/posts/show.html.erb:14: syntax error, unexpected ')', expecting end
+app/views/posts/show.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/show.html.erb:14: syntax error, unexpected tLABEL, expecting ')'
+app/views/posts/show.html.erb:14: syntax error, unexpected ',', expecting end
+app/views/posts/show.html.erb:14: syntax error, unexpected ')', expecting end
+app/views/posts/show.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/show.html.erb:14: syntax error, unexpected tLABEL, expecting ')'
+app/views/posts/show.html.erb:14: syntax error, unexpected ',', expecting end
+app/views/posts/show.html.erb:14: syntax error, unexpected ')', expecting end
+app/views/posts/show.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/show.html.erb:14: syntax error, unexpected tLABEL, expecting ')'
+app/views/posts/show.html.erb:14: syntax error, unexpected ',', expecting end
+app/views/posts/show.html.erb:14: syntax error, unexpected ')', expecting end
+app/views/posts/show.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/show.html.erb:14: syntax error, unexpected tLABEL, expecting ')'
+app/views/posts/show.html.erb:14: syntax error, unexpected ',', expecting end
+app/views/posts/show.html.erb:14: syntax error, unexpected ')', expecting end
+app/views/posts/show.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/show.html.erb:14: syntax error, unexpected tLABEL, expecting ')'
+app/views/posts/show.html.erb:14: syntax error, unexpected ',', expecting end
+app/views/posts/show.html.erb:14: syntax error, unexpected ')', expecting end
+app/views/posts/show.html.erb:28: syntax error, unexpected end, expecting end-of-input
+Started GET "/posts/182" for ::1 at 2020-04-13 11:32:14 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"182"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 182], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:18:in `show'
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1146)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 2782)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1><%= @post.title %></h1>
+<br>
+<label>Description:</labeL>
+<p><%=@post.description%></p>
+<br>
+
+
+<label> Comment Section: </label>
+<% @comments.map do |comment| %>
+<p><%= comment.content %></p>
+<%= comment.user.name %>
+<%end%>
+
+<%=form_with (method: 'NEW', url: "/comments/new") do |form|%>
+<input type = "hidden" name = "post_id" value = <%=@post.id%>/>
+<%=form.submit("New Comment")%>
+<%end%>
+
+
+
+
+
+
+
+
 Started GET "/posts/198" for ::1 at 2020-04-13 11:05:44 -0500
   [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

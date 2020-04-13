@@ -17,5 +17,10 @@ class PostsController < ApplicationController
     def show
         @post = Post.find(params[:id])
         @comments = Comment.where(post_id: @post.id)
+        @user = @post.user
+    end
+
+    def new_comment
+        redirect_to("/comments/new")
     end
 end
