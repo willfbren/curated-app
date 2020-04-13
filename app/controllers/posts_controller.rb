@@ -1,10 +1,7 @@
 class PostsController < ApplicationController
+
     def index
         @posts = Post.all
-    end
-
-    def show
-        @post = Post.find(params[:id])
     end
 
     def new
@@ -15,5 +12,9 @@ class PostsController < ApplicationController
 
     def create
         # create new post in db and redirect to show page
+
+    def show
+        @post = Post.find(params[:id])
+        @comments = Comment.where(post_id: @post.id)
     end
 end
