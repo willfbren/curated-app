@@ -8,7 +8,7 @@
 <label> Comment Section: </label>
 <%@comments.map do |comment| %>
 <p><%=comment.content%></p>
-<%=User.find(comment.user_id).name%>
+<%=link_to(User.find(comment.user_id).name, user_path(User.find(comment.user_id)))%>
 <%end%>
 
 
