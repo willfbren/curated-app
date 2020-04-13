@@ -8,16 +8,22 @@
 <label> Comment Section: </label>
 <% @comments.map do |comment| %>
 <p><%= comment.content %></p>
-<%= link_to(comment.user.name, user_path(comment.user.id)) %>
+Posted By: <%= link_to(comment.user.name, user_path(comment.user.id)) %>
+<p>_______________________________________________________<p>
+<br>
 <%end%>
 
 <%= form_with url: comments_path do |form| %>
-    <%= form.text_area :content, size: "30x20"%>
+    <h5>Enter a new comment:</h5>
+    <%= form.text_area :content, size: "50x10"%>
     <%= form.hidden_field :post_id, :value => @post.id %>
+    <%# YOU BETTER CHANGE THIS VALUE TO COOKIES USER VVVVVVVV%>
     <%= form.hidden_field :user_id, :value => @user.id %>
     <br>
     <%= form.submit("Enter A New Comment") %>
 <% end %>
+
+
 
 
 
