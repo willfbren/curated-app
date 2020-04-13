@@ -1,4 +1,4 @@
-<h1><%=@post.title%></h1>
+<h1><%= @post.title %></h1>
 <br>
 <label>Description:</labeL>
 <p><%=@post.description%></p>
@@ -6,10 +6,24 @@
 
 
 <label> Comment Section: </label>
-<%@comments.map do |comment| %>
-<p><%=comment.content%></p>
-<%=link_to(User.find(comment.user_id).name, user_path(User.find(comment.user_id)))%>
+<% @comments.map do |comment| %>
+<p><%= comment.content %></p>
+<%= link_to(comment.user.name, user_path(comment.user.id)) %>
 <%end%>
+
+<%= form_with url: comments_path do |form| %>
+    <%= form.text_area :content, size: "30x20"%>
+    <%= form.hidden_field :post_id, :value => @post.id %>
+    <%= form.hidden_field :user_id, :value => @user.id %>
+    <br>
+    <%= form.submit("Enter A New Comment") %>
+<% end %>
+
+
+
+
+
+
 
 
 

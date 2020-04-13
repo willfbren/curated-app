@@ -2,6 +2,9 @@ class CommentsController < ApplicationController
     def edit
     end
 
+    def index
+    end
+
     def update
     end
     
@@ -9,5 +12,8 @@ class CommentsController < ApplicationController
     end
 
     def create
+        byebug
     end
+
+
 end
