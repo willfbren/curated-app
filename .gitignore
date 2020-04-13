@@ -1,2 +1,3 @@
 db/development.sqlite
 tmp/
+log/
