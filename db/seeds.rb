@@ -30,7 +30,7 @@ end
         user_id: User.all.sample().id,
         project_id: Project.all.sample().id,
         category_id: Category.all.sample().id,
-        image_url: Faker::LoremFlickr.image(size: "800x800", search_terms: ['design'])
+        image_url: Faker::LoremFlickr.image(size: "800x600", search_terms: ['design'])
     )
 end
 
