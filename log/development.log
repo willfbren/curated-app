@@ -6622,3 +6622,274 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 2245)
 
 
+Started GET "/users/110" for ::1 at 2020-04-13 10:44:15 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"110"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 110], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 228)
+Completed 200 OK in 63ms (Views: 31.2ms | ActiveRecord: 1.1ms | Allocations: 10407)
+
+
+Started GET "/users/110" for ::1 at 2020-04-13 10:44:16 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"110"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 110], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 8)
+Completed 200 OK in 16ms (Views: 11.2ms | ActiveRecord: 0.3ms | Allocations: 2271)
+
+
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "comments" ON "posts"."id" = "comments"."post_id" WHERE "comments"."user_id" = ? LIMIT ?[0m  [["user_id", 101], ["LIMIT", 11]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "comments" ON "posts"."id" = "comments"."post_id" WHERE "comments"."user_id" = ? LIMIT ?[0m  [["user_id", 101], ["LIMIT", 11]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "comments" ON "posts"."id" = "comments"."post_id" WHERE "comments"."user_id" = ? LIMIT ?[0m  [["user_id", 101], ["LIMIT", 11]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "comments" ON "posts"."id" = "comments"."post_id" WHERE "comments"."user_id" = ? ORDER BY "posts"."id" ASC LIMIT ?[0m  [["user_id", 101], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ? LIMIT ?[0m  [["user_id", 101], ["LIMIT", 11]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "comments" ON "posts"."id" = "comments"."post_id" WHERE "comments"."user_id" = ? LIMIT ?[0m  [["user_id", 101], ["LIMIT", 11]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "comments" ON "posts"."id" = "comments"."post_id" WHERE "comments"."user_id" = ? ORDER BY "posts"."id" ASC LIMIT ?[0m  [["user_id", 101], ["LIMIT", 1]]
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 97], ["LIMIT", 1]]
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ? LIMIT ?[0m  [["user_id", 101], ["LIMIT", 11]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ? ORDER BY "projects"."id" ASC LIMIT ?[0m  [["user_id", 101], ["LIMIT", 1]]
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."project_id" = ? LIMIT ?[0m  [["project_id", 95], ["LIMIT", 11]]
+Started GET "/users/110" for 127.0.0.1 at 2020-04-13 10:59:31 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"110"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 110], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 110]]
+  ↳ app/views/users/show.html.erb:5
+  Rendered users/show.html.erb within layouts/application (Duration: 24.8ms | Allocations: 4863)
+Completed 200 OK in 77ms (Views: 59.6ms | ActiveRecord: 1.8ms | Allocations: 15321)
+
+
+Started GET "/users/110" for 127.0.0.1 at 2020-04-13 11:00:58 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"110"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 110], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 110]]
+  ↳ app/views/users/show.html.erb:5
+  Rendered users/show.html.erb within layouts/application (Duration: 9.2ms | Allocations: 2608)
+Completed 200 OK in 42ms (Views: 22.0ms | ActiveRecord: 2.3ms | Allocations: 9726)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 110], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ? LIMIT ?[0m  [["user_id", 110], ["LIMIT", 11]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "comments" ON "posts"."id" = "comments"."post_id" WHERE "comments"."user_id" = ? LIMIT ?[0m  [["user_id", 110], ["LIMIT", 11]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" INNER JOIN "comments" ON "posts"."id" = "comments"."post_id" WHERE "comments"."user_id" = ? LIMIT ?[0m  [["user_id", 110], ["LIMIT", 11]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ? LIMIT ?[0m  [["user_id", 110], ["LIMIT", 11]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" ORDER BY "projects"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."project_id" = ? LIMIT ?[0m  [["project_id", 91], ["LIMIT", 11]]
+Started GET "/users/106" for 127.0.0.1 at 2020-04-13 11:03:59 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"106"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 106]]
+  ↳ app/views/users/show.html.erb:5
+  Rendered users/show.html.erb within layouts/application (Duration: 66.9ms | Allocations: 7787)
+Completed 200 OK in 169ms (Views: 132.1ms | ActiveRecord: 4.1ms | Allocations: 18518)
+
+
+Started GET "/projects/93" for 127.0.0.1 at 2020-04-13 11:04:02 -0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"93"}
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 75)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 2402)
+
+
+Started GET "/projects/93" for 127.0.0.1 at 2020-04-13 11:07:24 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"93"}
+  [1m[36mProject Load (1.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:3:in `show'
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 110)
+Completed 200 OK in 38ms (Views: 4.9ms | ActiveRecord: 2.3ms | Allocations: 7043)
+
+
+Started GET "/projects/93" for 127.0.0.1 at 2020-04-13 11:09:45 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"93"}
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:3:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `show'
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 124)
+Completed 200 OK in 55ms (Views: 13.2ms | ActiveRecord: 2.4ms | Allocations: 11089)
+
+
+Started GET "/projects/93" for 127.0.0.1 at 2020-04-13 11:10:46 -0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"93"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:3:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `show'
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (Duration: 34.2ms | Allocations: 5428)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.4ms | Allocations: 7429)
+
+
+Started GET "/projects/93" for 127.0.0.1 at 2020-04-13 11:10:54 -0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"93"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:3:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `show'
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."project_id" = ?[0m  [["project_id", 93]]
+  ↳ app/views/projects/show.html.erb:6
+  Rendered projects/show.html.erb within layouts/application (Duration: 17.2ms | Allocations: 7458)
+Completed 200 OK in 39ms (Views: 27.7ms | ActiveRecord: 1.3ms | Allocations: 11088)
+
+
+Started GET "/projects/184" for 127.0.0.1 at 2020-04-13 11:10:57 -0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"184"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:3:in `show'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 888)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Project with 'id'=184):
+  
+app/controllers/projects_controller.rb:3:in `show'
+Started GET "/projects/184" for 127.0.0.1 at 2020-04-13 11:11:16 -0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"184"}
+  [1m[36mProject Load (6.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:3:in `show'
+Completed 404 Not Found in 10ms (ActiveRecord: 6.7ms | Allocations: 904)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Project with 'id'=184):
+  
+app/controllers/projects_controller.rb:3:in `show'
+Started GET "/projects/93" for 127.0.0.1 at 2020-04-13 11:11:27 -0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"93"}
+  [1m[36mProject Load (2.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:3:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `show'
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."project_id" = ?[0m  [["project_id", 93]]
+  ↳ app/views/projects/show.html.erb:6
+  Rendered projects/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1032)
+Completed 200 OK in 18ms (Views: 10.2ms | ActiveRecord: 3.4ms | Allocations: 4704)
+
+
+Started GET "/posts/184" for 127.0.0.1 at 2020-04-13 11:11:28 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"184"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 184], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `show'
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (4.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 184]]
+  ↳ app/views/posts/show.html.erb:9:in `map'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (Duration: 26.3ms | Allocations: 4170)
+Completed 200 OK in 45ms (Views: 29.4ms | ActiveRecord: 7.7ms | Allocations: 8102)
+
+
+Started GET "/users/102" for 127.0.0.1 at 2020-04-13 11:11:31 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"102"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 102]]
+  ↳ app/views/users/show.html.erb:5
+  Rendered users/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1508)
+Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 0.7ms | Allocations: 4328)
+
+
+Started GET "/projects/93" for 127.0.0.1 at 2020-04-13 11:12:36 -0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"93"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 93], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:3:in `show'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `show'
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."project_id" = ?[0m  [["project_id", 93]]
+  ↳ app/views/projects/show.html.erb:6
+  Rendered projects/show.html.erb within layouts/application (Duration: 9.8ms | Allocations: 851)
+Completed 200 OK in 21ms (Views: 15.6ms | ActiveRecord: 0.9ms | Allocations: 3583)
+
+
+Started GET "/posts/190" for 127.0.0.1 at 2020-04-13 11:12:41 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"190"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 190], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `show'
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 190]]
+  ↳ app/views/posts/show.html.erb:9:in `map'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (Duration: 14.3ms | Allocations: 2677)
+Completed 200 OK in 23ms (Views: 18.3ms | ActiveRecord: 2.2ms | Allocations: 4970)
+
+
+Started GET "/users/107" for 127.0.0.1 at 2020-04-13 11:12:47 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"107"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 107]]
+  ↳ app/views/users/show.html.erb:5
+  Rendered users/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1350)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.3ms | Allocations: 3596)
+
+
+Started GET "/projects/98" for 127.0.0.1 at 2020-04-13 11:12:49 -0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"98"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 98], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:3:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:4:in `show'
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."project_id" = ?[0m  [["project_id", 98]]
+  ↳ app/views/projects/show.html.erb:6
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 802)
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 0.5ms | Allocations: 3533)
+
+

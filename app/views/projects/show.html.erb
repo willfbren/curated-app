@@ -1,0 +1,8 @@
+<h1><%=@project.title%></h1>
+
+<h3> A project build by <%=@user.name%></h3>
+
+<label>Posts</label>
+<%@project.posts.each do |post|%>
+<p><%=link_to(post.title, post_path(post.id))%></p>
+<%end%>
