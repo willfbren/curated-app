@@ -12,7 +12,7 @@ Post.destroy_all
 Comment.destroy_all
 
 10.times do
-    User.create(name: Faker::Name.name)
+    User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password)
 end
 
 10.times do
