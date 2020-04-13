@@ -12,6 +12,7 @@ class PostsController < ApplicationController
 
     def create
         # create new post in db and redirect to show page
+    end
 
     def show
         @post = Post.find(params[:id])
