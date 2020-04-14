@@ -1,4 +1,4 @@
 db/development.sqlite
 tmp/
-log/
+log/development.log
 .byebug_history
