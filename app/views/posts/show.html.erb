@@ -19,6 +19,7 @@ Posted By: <%= link_to(comment.user.name, user_path(comment.user.id)) %>
     <%= form.hidden_field :post_id, :value => @post.id %>
     <%# YOU BETTER CHANGE THIS VALUE TO COOKIES USER VVVVVVVV%>
     <%= form.hidden_field :user_id, :value => @user.id %>
+    <%# YOU BETTER CHANGE THIS VALUE TO COOKIES USER ^^^^^^^^%>
     <br>
     <%= form.submit("Enter A New Comment") %>
 <% end %>
