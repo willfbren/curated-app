@@ -19,11 +19,11 @@ end
     Project.create(title: Faker::App.name, description: Faker::Company.catch_phrase, user_id: User.all.sample().id)
 end
 
-15.times do
+10.times do
     Category.create(name: Faker::Commerce.department)
 end
 
-20.times do
+15.times do
     Post.create(
         title: Faker::TvShows::SiliconValley.app,
         description: Faker::Lorem.paragraph(sentence_count: 5),

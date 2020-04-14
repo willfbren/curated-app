@@ -1,10 +1,13 @@
 <div class="row">
 <% @posts.each do |post| %>
-    <div class="col-sm-3">
-        <img src="<%= post.image_url %>" class="img-thumbnail">
-        <h3><%= link_to post.title, post %></h3>
-        <p><%= link_to post.user.name, "/user/#{post.user.id}" %></p>
-        <p><%= post.description %></p>
-        <p>Project: <%= post.project.title %> | Category: <%= post.category.name %></p>
+    <div class="card mx-auto" style="width: 20rem; margin: 15px;">
+        <img src="<%= post.image_url %>" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title"><%= link_to post.title, post %></h5>
+            <p class="card-text"><%= post.description %></p>
+            <a href="#" class="card-link">By <%= link_to post.user.name, "/user/#{post.user.id}" %> in <%= post.project.title %></a><br>
+            <a href="#" class="card-link"><%= post.category.name %></a>
+        </div>
     </div>
 <% end %>
+</div>
