@@ -5,4 +5,10 @@ Rails.application.routes.draw do
 
   get '/', to: 'posts#index'
   
+  get '/login', to: 'users#view_login'
+
+  post '/users/login', to: 'users#handle_login'
+
+  get '/signup', to: 'users#new'
+
 end
