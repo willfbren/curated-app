@@ -1,0 +1,11 @@
+<%= form_with model: @user do |form| %>
+<label>Name:</label>
+<%= form.text_field :name, class: "form-control" %><br>
+<label>Email:</label>
+<%= form.text_field :email, class: "form-control" %><br>
+<label>Password:</label>
+<%= form.password_field :password, class: "form-control" %><br>
+<label>Confirm Password:</label>
+<%= form.password_field :confirm_password, class: "form-control" %><br>
+<%= form.submit class: "btn btn-primary"%>
+<% end %>

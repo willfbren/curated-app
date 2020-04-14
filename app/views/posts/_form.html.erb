@@ -1,15 +1,13 @@
-<%= form_with(model: @post) do |form| %>
-<%# <label>Select image:</label> %>
-<%#= form.file_field(:image_url) %>
+<%= form_with model: @post do |form| %>
 <label>Title:</label><br>
-<%= form.text_field(:title) %><br>
+<%= form.text_field :title, class: "form-control" %><br>
 <label>Description:</label><br>
-<%= form.text_area(:description) %><br>
-<%= label_tag("Choose Project:") %>
-<%= form.collection_select(:project_id, @projects, :id, :title) %><br>
-<%= label_tag("Choose Category:") %>
-<%= form.collection_select(:category_id, @categories, :id, :name) %><br>
+<%= form.text_area :description, class: "form-control" %><br>
 <label>Image Link</label>
-<%= form.text_field(:image_url) %><br>
-<%= form.submit %>
+<%= form.text_field :image_url, class: "form-control" %><br>
+<%= label_tag("Choose Project:") %>
+<%= form.collection_select :project_id, @projects, :id, :title, class: "form-control" %><br>
+<%= label_tag("Choose Category:") %>
+<%= form.collection_select :category_id, @categories, :id, :name, class: "form-control" %><br>
+<%= form.submit class: "btn btn-primary" %>
 <% end %>

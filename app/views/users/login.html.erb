@@ -1,0 +1,13 @@
+<div class="row justify-content-center">
+    <div class="col-4">
+        <%= form_with({ method: 'POST', url: '/users/login' }) do |form| %>
+        <h2>Login</h2>
+        <hr>
+        <label>Email:</label>
+        <%= form.text_field :email, class: "form-control" %><br>
+        <label>Password:</label>
+        <%= form.password_field :password, class: "form-control" %><br>
+        <%= form.submit class: "btn btn-primary"%>
+        <% end %>
+    </div>
+</div>
