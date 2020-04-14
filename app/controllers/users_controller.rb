@@ -7,13 +7,14 @@ class UsersController < ApplicationController
     end
 
     def handle_login
-        user = User.find_by(email: params[:user][:email])
+        user = User.find_by({ email: params[:email] })
 
-        if user.authenticate(params[:user][:password])
+        if user.authenticate(params[:password])
             session[:user_id] = user.id
             redirect_to "/"
         else
-            p "Login failed."
+            flash.now[:danger] = "Incorrect username/password."
+            render :login
         end
     end
     
@@ -23,7 +24,8 @@ class UsersController < ApplicationController
     
     def create
         if User.exists?(email: params[:user][:email])
-            redirect_to "/signup"
+            flash.now[:danger] = "Email already exists, please login instead."
+            render :login
         else
             User.create(
                 name: params[:user][:name],
@@ -53,6 +55,12 @@ class UsersController < ApplicationController
         )
 
         redirect_to user_path(@user.id)
+    end
+
+    def logout
+        session.destroy
+        @current_user = nil
+        render :login
     end
 
 end

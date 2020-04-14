@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   
   get '/login', to: 'users#view_login'
 
-  post '/users/login', to: 'users#handle_login'
+  post '/login', to: 'users#handle_login'
 
   get '/signup', to: 'users#new'
 
+  get '/logout', to: 'users#logout'
+  
 end
