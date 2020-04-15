@@ -29,9 +29,9 @@
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= @current_user.name %></a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="/posts/new">Upload Post</a>
-                <a class="dropdown-item" href="/posts/">My Posts</a>
+                <a class="dropdown-item" href="/users/<%=session[:user_id]%>/posts">My Posts</a>
                 <a class="dropdown-item" href="/project/">Projects</a>
-                <a class="dropdown-item" href="/users/">Profile</a>
+                <a class="dropdown-item" href="/users/<%=session[:user_id]%>">Profile</a>
                 <a class="dropdown-item" href="/logout">Logout</a>
               </div>
             </li>
