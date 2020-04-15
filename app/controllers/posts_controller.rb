@@ -23,7 +23,7 @@ class PostsController < ApplicationController
             title: params[:post][:title],
             description: params[:post][:description],
             image_url: params[:post][:image_url],
-            user_id: User.first.id,
+            user_id: current_user.id,
             project_id: params[:post][:project_id],
             category_id: params[:post][:category_id]
         )
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
             title: params[:post][:title],
             description: params[:post][:description],
             image_url: params[:post][:image_url],
-            user_id: User.first.id,
+            user_id: current_user.id,
             project_id: params[:post][:project_id],
             category_id: params[:post][:category_id]
         )
