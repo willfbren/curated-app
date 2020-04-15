@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
         @comment = Comment.create({
             content: params[:content],
             post_id: params[:post_id],
-            user_id: params[:user_id]
+            user_id: session[:user_id]
         })
         redirect_to("/posts/#{params[:post_id]}")
     end

@@ -1,8 +1,9 @@
 <h1><%=@user.name%></h1>
-<label>Check out this User's Posts</label>
-<%@user.posts.each do |post|%>
-<p><%=link_to(post.title, "/users/#{@user.id}/posts")%></p>
-<%end%>
+<label>Check out this User's Creations</label>
+<br>
+<%=link_to("Projects", "/users/#{@user.id}/projects")%>
+<br>
+<%=link_to("Posts", "/users/#{@user.id}/posts")%>
 
 
 
