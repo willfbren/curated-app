@@ -1,0 +1,16 @@
+<h4>Comments</h4>
+<ul class="list-group">
+    <% @comments.map do |comment| %>
+    <li class="list-group-item"><em><%= link_to(comment.user.name, user_path(comment.user.id)) %></em><br><%= comment.content %></li>
+    <%end%>
+</ul>
+<br>
+<%= form_with url: comments_path do |form| %>
+    <%= form.text_area :content, class: "form-control", placeholder: "Add comment here..." %>
+    <%= form.hidden_field :post_id, :value => @post.id %>
+    <%# YOU BETTER CHANGE THIS VALUE TO COOKIES USER VVVVVVVV%>
+    <%= form.hidden_field :user_id, :value => session[:user_id] %>
+    <%# YOU BETTER CHANGE THIS VALUE TO COOKIES USER ^^^^^^^^%>
+    <br>
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+<% end %>
