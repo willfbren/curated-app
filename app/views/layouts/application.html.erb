@@ -24,22 +24,36 @@
           </li>
         </ul>
         <ul class="navbar-nav justify-content-end">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Username</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="">Posts</a>
-              <a class="dropdown-item" href="">Projects</a>
-              <a class="dropdown-item" href="">Profile</a>
-            </div>
-          </li>
+          <% if logged_in? %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= @current_user.name %></a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/posts/new">Upload Post</a>
+                <a class="dropdown-item" href="/posts/">My Posts</a>
+                <a class="dropdown-item" href="/project/">Projects</a>
+                <a class="dropdown-item" href="/users/">Profile</a>
+                <a class="dropdown-item" href="/logout">Logout</a>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">Sign up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+          <% end %>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </nav>
     <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <% flash.each do |message_type, message| %>
+              <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+        </div>
+      </div>
     <%= yield %>
     </div>
   </body>
