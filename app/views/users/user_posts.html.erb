@@ -1,4 +1,6 @@
 <div class="row">
+<%# Hey You're Probably Reading this right now and this is here to tell you that the db is kinda jank with comments since they belong to both a post and a user. So at this point whenever a user comments on a post, they will have have inheritance of that post as well, so in order to find the correct posts now we will have to sort through the posts that actually have the user_id equal to the logged in user%>
+<%#Lol nevermind it just removing a user has many posts through comments in the models. The comments has 2 one-to-many associations not 1 many to many%>
 <% @user.posts.each do |post| %>
     <div class="card mx-auto" style="width: 20rem; margin: 15px;">
         <img src="<%= post.image_url %>" class="card-img-top">

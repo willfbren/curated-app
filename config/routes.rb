@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   # post '/login', to: 'users#handle_login'
 
+  get'/users/:id/projects', to: 'users#user_projects'
+
 
   get '/users/:id/posts', to: 'users#user_posts'
 
