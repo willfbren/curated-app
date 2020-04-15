@@ -1,5 +1,13 @@
+<%if @category.posts == []%>
+<img src ="https://media2.giphy.com/media/3qwCQWNOeWriE/source.gif">
+<h6>This category looks awfully empty...</h6>
+<br>
+<br>
+<br>
+<h1 style="text-align:center"><%= link_to("Be The First One To Post In It!", new_post_path(@category.posts))%></h1>
+<%else%>
 <div class="row">
-<% @category.posts.each do |post| %>
+<% @category.posts.each do |post| %>        
     <div class="card mx-auto" style="width: 20rem; margin: 15px;">
         <img src="<%= post.image_url %>" class="card-img-top">
         <div class="card-body">
@@ -9,5 +17,6 @@
             <a href="#" class="card-link"><%= post.category.name %></a>
         </div>
     </div>
+<%end%>
 <% end %>
 </div>
