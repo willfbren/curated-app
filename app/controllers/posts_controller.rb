@@ -54,4 +54,5 @@ class PostsController < ApplicationController
     def new_comment
         redirect_to("/comments/new")
     end
+    
 end
