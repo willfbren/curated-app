@@ -2,21 +2,21 @@ class UsersController < ApplicationController
     
     # skip_before_action(:check_login, only: [:view_login, :handle_login, :new, :create])
 
-    # def view_login
-    #     render(:login)
-    # end
+    def view_login
+        render(:login)
+    end
 
-    # def handle_login
-    #     user = User.find_by({ email: params[:email] })
+    def handle_login
+        user = User.find_by({ email: params[:email] })
 
-    #     if user.authenticate(params[:password])
-    #         session[:user_id] = user.id
-    #         redirect_to "/"
-    #     else
-    #         flash.now[:danger] = "Incorrect username/password."
-    #         render :login
-    #     end
-    # end
+        if user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect_to "/"
+        else
+            flash.now[:danger] = "Incorrect username/password."
+            render :login
+        end
+    end
     
     def new
         @user = User.new()
@@ -42,7 +42,10 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        
     end
+
+    def 
 
     def edit
         @user = User.find(params[:id])
@@ -59,6 +62,11 @@ class UsersController < ApplicationController
 
         redirect_to user_path(@user.id)
     end
+
+    def user_posts
+        @user = User.find(params[:id])
+    end
+
 
     # def logout
     #     session.destroy
