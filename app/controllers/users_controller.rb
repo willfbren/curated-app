@@ -71,10 +71,6 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
 
-    def user_projects
-        @user = User.find(params[:id])
-    end
-
 
     # def logout
     #     session.destroy

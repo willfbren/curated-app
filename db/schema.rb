@@ -26,17 +26,10 @@ ActiveRecord::Schema.define(version: 2020_04_14_181301) do
     t.string "title"
     t.string "description"
     t.integer "user_id"
-    t.integer "project_id"
     t.integer "category_id"
     t.string "image_url"
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
-  end
-
-  create_table "projects", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
