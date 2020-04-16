@@ -5,8 +5,10 @@
 <%= form.text_area :description, class: "form-control" %><br>
 <label>Image Link</label>
 <%= form.text_field :image_url, class: "form-control" %><br>
-<%= label_tag("Choose Category:") %>
-<%= form.collection_select :category_id, @categories, :id, :name, class: "form-control" %><br>
+<%= label_tag("Enter New Category") %>
+<%= form.text_field :category_name, class: "form-control" %><br>
+<%= label_tag("Or Choose Category:") %>
+<%= form.collection_select :category_id, @categories, :id, :name, class: "form-control", include_blank: true %><br>
 <br>
 <%= form.submit class: "btn btn-primary float-left" %>
 <% end %>

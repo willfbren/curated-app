@@ -18,20 +18,31 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.create(
-            title: params[:post][:title],
-            description: params[:post][:description],
-            image_url: params[:post][:image_url],
-            user_id: current_user.id,
-            category_id: params[:post][:category_id]
-        )
+        if params[:post][:category_name].empty?
+            @post = Post.create(
+                title: params[:post][:title],
+                description: params[:post][:description],
+                image_url: params[:post][:image_url],
+                user_id: current_user.id,
+                category_id: params[:post][:category_id]
+            )
+        else
+            category = Category.create(name: params[:post][:category_name])
+            @post = Post.create(
+                title: params[:post][:title],
+                description: params[:post][:description],
+                image_url: params[:post][:image_url],
+                user_id: current_user.id,
+                category_id: category.id
+            )
+        end
+
         if @post.valid?
             redirect_to post_path(Post.last.id)
         else
-            flash[:error_messages] = @post.errors.full_messages[0]
+            flash[:warning] = @post.errors.full_messages[0]
             redirect_to '/posts/new'
         end
-
         
     end
 
