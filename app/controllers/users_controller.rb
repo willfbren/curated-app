@@ -25,18 +25,22 @@ class UsersController < ApplicationController
     def create
         if User.exists?(email: params[:user][:email])
             flash.now[:danger] = "Email already exists, please login instead."
-            render :login
+            redirect_to "/login"
         else
             user = User.create(
                 name: params[:user][:name],
                 email: params[:user][:email],
                 password: params[:user][:password]
             )
-            
-            log_in user
-            flash[:success] = "Welcome to Curated!"
+            if(user.valid?)
+                log_in user
+                flash[:success] = "Welcome to Curated!"
 
-            redirect_to user_path(User.last.id)
+                redirect_to user_path(User.last.id)
+            else
+                flash[:error_messages] = user.errors.full_messages
+                redirect_to "/users/new"
+            end
         end
     end
 
