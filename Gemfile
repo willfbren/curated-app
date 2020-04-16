@@ -53,3 +53,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "faker", "~> 2.11"
 
 gem "bcrypt", "~> 3.1"
+
+gem "impressionist", "~> 1.6"
