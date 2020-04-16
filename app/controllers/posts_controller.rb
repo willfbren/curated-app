@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
     def new
         @post = Post.new()
-        @projects = Project.all
+        @projects = current_user.projects
         @categories = Category.all
     end
 
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
     def edit
         @post = Post.find(params[:id])
-        @projects = Project.all
+        @projects = current_user.projects
         @categories = Category.all
     end
 
@@ -49,6 +49,12 @@ class PostsController < ApplicationController
         )
         
         redirect_to post_path(@post.id)
+    end
+
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+        redirect_to "/"
     end
 
     def new_comment

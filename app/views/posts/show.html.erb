@@ -7,6 +7,11 @@
         <h4>Description</h4>
         <p><%=@post.description%></p>
         <p class="font-weight-light">Category: <%= link_to @post.category.name, category_path %></p>
+        <% if session[:user_id] == @post.user_id %>
+            <a href="/posts/<%= @post.id %>/edit">
+                <button type="button" class="btn btn-secondary btn-sm">Edit Post</button>
+            </a>
+        <% end %>
         <br>
         <br>
         <%= render partial: "comments"%>

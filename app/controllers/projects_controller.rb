@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     end
 
     def edit
-        @project = Project.find(params[:project_id])
+        @project = Project.find(params[:id])
     end
 
     def update
@@ -28,9 +28,14 @@ class ProjectsController < ApplicationController
             description: params[:project][:description]
         )
 
-        redirect_to project_path
+        redirect_to projects_path
     end
 
+    def destroy
+        @project = Project.find(params[:id])
+        @project.destroy
+        redirect_to user_projects_path
+    end
     #test
 
 end

@@ -9,5 +9,12 @@
 <%= form.collection_select :project_id, @projects, :id, :title, class: "form-control" %><br>
 <%= label_tag("Choose Category:") %>
 <%= form.collection_select :category_id, @categories, :id, :name, class: "form-control" %><br>
-<%= form.submit class: "btn btn-primary" %>
+<br>
+<%= form.submit class: "btn btn-primary float-left" %>
+<% end %>
+
+<% if current_user.id == @post.user_id %>
+    <%= form_with model: @post, method: "DELETE" do |form| %>
+        <%= form.submit class: "btn btn-danger float-right", value: "Delete Post" %>
+    <% end %>
 <% end %>
