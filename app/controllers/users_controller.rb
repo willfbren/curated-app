@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
                 redirect_to user_path(User.last.id)
             else
-                flash[:error_messages] = user.errors.full_messages
+                flash[:error_messages] = user.errors.full_messages[0]
                 redirect_to "/users/new"
             end
         end
