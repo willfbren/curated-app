@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     end
 
     def create
-        Post.create(
+        @post = Post.create(
             title: params[:post][:title],
             description: params[:post][:description],
             image_url: params[:post][:image_url],
@@ -27,7 +27,14 @@ class PostsController < ApplicationController
             project_id: params[:post][:project_id],
             category_id: params[:post][:category_id]
         )
-        redirect_to post_path(Post.last.id)
+        if @post.valid?
+            redirect_to post_path(Post.last.id)
+        else
+            flash[:error_messages] = @post.errors.full_messages
+            redirect_to '/posts/new'
+        end
+
+        
     end
 
     def edit
