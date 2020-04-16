@@ -6,7 +6,7 @@
             <h5 class="card-title"><%= link_to post.title, post %></h5>
             <p class="card-text"><%= post.description %></p>
             <ul class="list-unstyled">
-                <li class="text-right"><small>By <%= link_to post.user.name, "/users/#{post.user.id}" %> in <%= link_to post.project.title, "/users/#{post.user.id}/projects/#{post.project.id}" %></small></li>
+                <li class="text-right"><small>By <%= link_to post.user.name, "/users/#{post.user.id}" %></small></li>
                 <li class="text-right"><small>Category: <%= link_to post.category.name, "/category/#{post.category_id}" %></small></li>
             </ul>
         </div>

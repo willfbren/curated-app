@@ -8,7 +8,6 @@ class PostsController < ApplicationController
 
     def new
         @post = Post.new()
-        @projects = current_user.projects
         @categories = Category.all
     end
 
@@ -24,7 +23,6 @@ class PostsController < ApplicationController
             description: params[:post][:description],
             image_url: params[:post][:image_url],
             user_id: current_user.id,
-            project_id: params[:post][:project_id],
             category_id: params[:post][:category_id]
         )
         if @post.valid?
@@ -39,7 +37,6 @@ class PostsController < ApplicationController
 
     def edit
         @post = Post.find(params[:id])
-        @projects = current_user.projects
         @categories = Category.all
     end
 
@@ -51,7 +48,6 @@ class PostsController < ApplicationController
             description: params[:post][:description],
             image_url: params[:post][:image_url],
             user_id: current_user.id,
-            project_id: params[:post][:project_id],
             category_id: params[:post][:category_id]
         )
         

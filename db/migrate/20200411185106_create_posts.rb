@@ -4,7 +4,6 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :description
       t.integer :user_id
-      t.integer :project_id
       t.integer :category_id
     end
   end
