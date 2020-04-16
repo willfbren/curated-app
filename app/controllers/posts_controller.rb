@@ -74,5 +74,17 @@ class PostsController < ApplicationController
     def new_comment
         redirect_to("/comments/new")
     end
-    
+
+    def like 
+        @post = Post.find(params[:id])
+        
+        if @post.votes_for.voters.include?(current_user)
+            @post.unliked_by current_user 
+        else
+            @post.liked_by current_user
+        end
+        
+        redirect_to @post
+    end  
+      
 end
