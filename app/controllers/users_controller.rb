@@ -2,21 +2,21 @@ class UsersController < ApplicationController
     
     # skip_before_action(:check_login, only: [:view_login, :handle_login, :new, :create])
 
-    def view_login
-        render(:login)
-    end
+    # def view_login
+    #     render(:login)
+    # end
 
-    def handle_login
-        user = User.find_by({ email: params[:email] })
+    # def handle_login
+    #     user = User.find_by({ email: params[:email] })
 
-        if user.authenticate(params[:password])
-            session[:user_id] = user.id
-            redirect_to "/"
-        else
-            flash.now[:danger] = "Incorrect username/password."
-            render :login
-        end
-    end
+    #     if user.authenticate(params[:password])
+    #         session[:user_id] = user.id
+    #         redirect_to "/"
+    #     else
+    #         flash.now[:danger] = "Incorrect username/password."
+    #         render :login
+    #     end
+    # end
     
     def new
         @user = User.new()

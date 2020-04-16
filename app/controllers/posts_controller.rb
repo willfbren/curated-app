@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
     def new
         @post = Post.new()
-        @projects = Project.all
+        @projects = current_user.projects
         @categories = Category.all
     end
 
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
             title: params[:post][:title],
             description: params[:post][:description],
             image_url: params[:post][:image_url],
-            user_id: User.first.id,
+            user_id: current_user.id,
             project_id: params[:post][:project_id],
             category_id: params[:post][:category_id]
         )
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
 
     def edit
         @post = Post.find(params[:id])
-        @projects = Project.all
+        @projects = current_user.projects
         @categories = Category.all
     end
 
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
             title: params[:post][:title],
             description: params[:post][:description],
             image_url: params[:post][:image_url],
-            user_id: User.first.id,
+            user_id: current_user.id,
             project_id: params[:post][:project_id],
             category_id: params[:post][:category_id]
         )
@@ -58,7 +58,14 @@ class PostsController < ApplicationController
         redirect_to post_path(@post.id)
     end
 
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+        redirect_to "/"
+    end
+
     def new_comment
         redirect_to("/comments/new")
     end
+    
 end

@@ -1,28 +1,24 @@
-<h1><%= @post.title %></h1>
-<br>
-<label>Description:</labeL>
-<p><%=@post.description%></p>
-<br>
+<div class="row justify-content-center">
+    <div class="col-8">
+        <h1><%= @post.title %></h1>
+        <p class="font-weight-light">By <%= link_to @post.user.name, "/users/#{@post.user.id}" %> in <%= link_to @post.project.title, "/users/#{@post.user.id}/projects/#{@post.project.id}" %></p>
+        <img class="img-fluid rounded img-thumbnail" src="<%= @post.image_url %>"><br>
+        <br>
+        <h4>Description</h4>
+        <p><%=@post.description%></p>
+        <p class="font-weight-light">Category: <%= link_to @post.category.name, category_path %></p>
+        <% if session[:user_id] == @post.user_id %>
+            <a href="/posts/<%= @post.id %>/edit">
+                <button type="button" class="btn btn-secondary btn-sm">Edit Post</button>
+            </a>
+        <% end %>
+        <br>
+        <br>
+        <%= render partial: "comments"%>
+    </div>
+</div>
 
 
-<label> Comment Section: </label>
-<% @comments.map do |comment| %>
-<p><%= comment.content %></p>
-Posted By: <%= link_to(comment.user.name, user_path(comment.user.id)) %>
-<p>_______________________________________________________<p>
-<br>
-<%end%>
-
-<%= form_with url: comments_path do |form| %>
-    <h5>Enter a new comment:</h5>
-    <%= form.text_area :content, size: "50x10"%>
-    <%= form.hidden_field :post_id, :value => @post.id %>
-    <%# YOU BETTER CHANGE THIS VALUE TO COOKIES USER VVVVVVVV%>
-    <%= form.hidden_field :user_id, :value => @user.id %>
-    <%# YOU BETTER CHANGE THIS VALUE TO COOKIES USER ^^^^^^^^%>
-    <br>
-    <%= form.submit("Enter A New Comment") %>
-<% end %>
 
 
 

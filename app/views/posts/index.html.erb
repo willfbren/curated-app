@@ -1,12 +1,14 @@
 <div class="row">
 <% @posts.each do |post| %>
-    <div class="card mx-auto" style="width: 20rem; margin: 15px;">
+    <div class="card mx-auto" style="width: 20rem; margin: 1rem;">
         <img src="<%= post.image_url %>" class="card-img-top">
         <div class="card-body">
             <h5 class="card-title"><%= link_to post.title, post %></h5>
             <p class="card-text"><%= post.description %></p>
-            <a href="#" class="card-link">By <%= link_to post.user.name, "/users/#{post.user.id}" %> in <%= post.project.title %></a><br>
-            <a href="#" class="card-link"><%= post.category.name %></a>
+            <ul class="list-unstyled">
+                <li class="text-right"><small>By <%= link_to post.user.name, "/users/#{post.user.id}" %> in <%= link_to post.project.title, "/users/#{post.user.id}/projects/#{post.project.id}" %></small></li>
+                <li class="text-right"><small>Category: <%= link_to post.category.name, "/category/#{post.category_id}" %></small></li>
+            </ul>
         </div>
     </div>
 <% end %>
