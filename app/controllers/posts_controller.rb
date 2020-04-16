@@ -30,7 +30,7 @@ class PostsController < ApplicationController
         if @post.valid?
             redirect_to post_path(Post.last.id)
         else
-            flash[:error_messages] = @post.errors.full_messages
+            flash[:error_messages] = @post.errors.full_messages[0]
             redirect_to '/posts/new'
         end
 
