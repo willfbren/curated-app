@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
     belongs_to :user
     belongs_to :category
+    is_impressionable
 
     validate do
         if self.title.chomp == ""
