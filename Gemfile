@@ -55,3 +55,5 @@ gem "faker", "~> 2.11"
 gem "bcrypt", "~> 3.1"
 
 gem "impressionist", "~> 1.6"
+
+gem "acts_as_votable", "~> 0.12.1"

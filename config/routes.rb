@@ -16,4 +16,12 @@ Rails.application.routes.draw do
 
   get '/logout', to: 'sessions#destroy'
 
+  # get '/posts/:id/like', to: 'posts#like'
+
+  resources :posts do 
+    member do
+      get 'like', to: 'posts#like'
+      get "dislike", to: "posts#dislike"
+    end
+  end
 end

@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_many :posts
     has_many :comments
     has_secure_password()
+    acts_as_voter
 
     validate do
         if self.name.chomp == ""
