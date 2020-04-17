@@ -23,25 +23,43 @@ class UsersController < ApplicationController
     end
     
     def create
-        if User.exists?(email: params[:user][:email])
-            flash.now[:danger] = "Email already exists, please login instead."
-            redirect_to "/login"
-        else
-            user = User.create(
-                name: params[:user][:name],
-                email: params[:user][:email],
-                password: params[:user][:password]
-            )
-            if(user.valid?)
-                log_in user
-                flash[:success] = "Welcome to Curated!"
+   
+        user = User.new(
+            name: params[:user][:name],
+            email: params[:user][:email],
+            password: params[:user][:password],
+        )
 
-                redirect_to user_path(User.last.id)
-            else
-                flash[:error_messages] = user.errors.full_messages[0]
-                redirect_to "/users/new"
-            end
+        if User.exists?(email: params[:user][:email])
+            flash[:danger] = "Email already exists, please login instead."
+            redirect_to "/login"
+        elsif params[:user][:password] != params[:user][:confirm_password]
+            flash[:danger] = "Passwords do not match."
+            redirect_to "/signup"
+        elsif user.valid?
+            user.save
+            log_in user
+            flash[:success] = "Welcome to Curated!"
+
+            redirect_to user_path(User.last.id)
+        else 
+            flash[:danger] = user.errors.full_messages[0]
+            redirect_to "/signup"
         end
+        # if User.exists?(email: params[:user][:email])
+            
+        # else
+
+        #     if(user.valid?)
+        #         log_in user
+        #         flash[:success] = "Welcome to Curated!"
+
+        #         redirect_to user_path(User.last.id)
+        #     else
+        #         flash[:error_messages] = user.errors.full_messages[0]
+        #         redirect_to "/users/new"
+        #     end
+        # end
     end
 
     def show

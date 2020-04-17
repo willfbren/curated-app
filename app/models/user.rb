@@ -8,10 +8,10 @@ class User < ApplicationRecord
         if self.name.chomp == ""
             self.errors.add(:name, 'must exist')
         elsif
-            self.password_digest == nil
+            self.password == ""
             self.errors.add(:password, 'must exist')
         elsif
-            self.email == nil
+            self.email.chomp == ""
             self.errors.add(:email, 'must exist')
         end
     end
