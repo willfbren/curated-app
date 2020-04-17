@@ -5,12 +5,17 @@
     <%end%>
 </ul>
 <br>
-<%= form_with url: comments_path do |form| %>
-    <%= form.text_area :content, class: "form-control", placeholder: "Add comment here..." %>
-    <%= form.hidden_field :post_id, :value => @post.id %>
-    <%# YOU BETTER CHANGE THIS VALUE TO COOKIES USER VVVVVVVV%>
-    <%= form.hidden_field :user_id, :value => session[:user_id] %>
-    <%# YOU BETTER CHANGE THIS VALUE TO COOKIES USER ^^^^^^^^%>
-    <br>
-    <%= form.submit "Submit", class: "btn btn-primary" %>
+<% if logged_in? %>
+    <h4>Leave a Reply</h4>
+    <%= form_with url: comments_path do |form| %>
+        <%= form.text_area :content, class: "form-control", placeholder: "Add comment here..." %>
+        <%= form.hidden_field :post_id, :value => @post.id %>
+        <%= form.hidden_field :user_id, :value => session[:user_id] %>
+        <br>
+        <%= form.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+<% else %>
+    <div class="alert alert-info">
+        Please <a href="/login">sign in</a> or <a href="/signup">sign up</a> to leave a reply.
+    </div>
 <% end %>

@@ -1,12 +1,12 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <h1><%= @post.title %></h1>
-        <p class="font-weight-light">By <%= link_to @post.user.name, "/users/#{@post.user.id}" %></p>
+        <p>By <%= link_to @post.user.name, "/users/#{@post.user.id}" %></p>
         <img class="img-fluid rounded img-thumbnail" src="<%= @post.image_url %>"><br>
         <br>
         <h4>Description</h4>
         <p><%=@post.description%></p>
-        <p class="font-weight-light">Category: <%= link_to @post.category.name, category_path %></p>
+        <p>Category: <%= link_to @post.category.name, category_path %></p>
         <% if @post.votes_for.voters.include?(current_user) %>
             <%= link_to like_post_path(@post), method: :get, class: "text-decoration-none"  do %>
                 <svg class="bi bi-heart-fill text-danger" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
