@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        
+        render :user_posts
     end
 
     def 

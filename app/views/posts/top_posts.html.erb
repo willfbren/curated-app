@@ -1,0 +1,22 @@
+<h1>Top Posts</h1>
+<br>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Post</th>
+            <th scope="col">User</th>
+            <th scope="col">Likes</th>
+        </tr>
+    </thead>
+    <% @posts.map.each_with_index do |post, index| %>
+        <% if post.votes_for.size > 0 %>
+            <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= link_to post.title, post %></td>
+                <td><%= User.all.find(post.user_id).name %></td>
+                <td><%= post.votes_for.size %></td>
+            </tr>
+        <% end %>
+    <% end %>
+</table>

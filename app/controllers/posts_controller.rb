@@ -86,5 +86,9 @@ class PostsController < ApplicationController
         
         redirect_to @post
     end  
-      
+    
+    def top_posts
+        @posts = Post.all.sort_by {|post| post.votes_for.size}.reverse
+    end
+
 end
