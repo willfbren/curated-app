@@ -1,28 +1,32 @@
 <div class="row">
 <% @posts.each do |post| %>
-    <div class="card mx-auto" style="width: 20rem; margin: 1rem;">
-        <img src="<%= post.image_url %>" class="card-img-top">
-        <div class="card-body">
-            <h5 class="card-title"><%= link_to post.title, post %></h5>
-            <p class="card-text"><%= post.description %></p>
-            <ul class="list-unstyled">
-                <li><small>By <%= link_to post.user.name, "/users/#{post.user.id}" %></small></li>
-                <li><small>Category: <%= link_to post.category.name, "/category/#{post.category_id}" %></small></li>
-            </ul>
-            <div class="text-right">     
-                <svg class="bi bi-heart-fill text-secondary" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" clip-rule="evenodd"/>
-                </svg>
-                <small class="text-muted"><%= post.votes_for.size %></small>&nbsp;&nbsp;
-                <svg class="bi bi-eye-fill text-secondary" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.5 8a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
-                    <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7z" clip-rule="evenodd"/>
-                </svg>
-                <small class="text-muted"><%= post.impressionist_count %></small>&nbsp;&nbsp;
-                    <svg class="bi bi-chat-square-dots-fill text-secondary" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M0 2a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2h-2.5a1 1 0 00-.8.4l-1.9 2.533a1 1 0 01-1.6 0L5.3 12.4a1 1 0 00-.8-.4H2a2 2 0 01-2-2V2zm5 4a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm3 1a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
-                </svg>
-                <small class="text-muted"><%= Comment.where(post_id: post.id).count %></small>
+    <div class="col-4">
+        <div class="card" style="margin-bottom: 2rem;">
+            <img src="<%= post.image_url %>" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title"><%= link_to post.title, post %></h5>
+                <p class="card-text" style="font-size: 14px;"><%= truncate(post.description, length: 85, separator: ' ') %></p>
+                <ul class="list-unstyled">
+                    <li><small>By <%= link_to post.user.name, "/users/#{post.user.id}" %></small></li>
+                    <li><small>Category: <%= link_to post.category.name, "/categories/#{post.category_id}" %></small></li>
+                </ul>
+            </div>
+            <div class="card-footer">
+                <div class="text-right">     
+                    <svg class="bi bi-heart-fill text-secondary" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" clip-rule="evenodd"/>
+                    </svg>
+                    <small class="text-muted"><%= post.votes_for.size %></small>&nbsp;&nbsp;
+                    <svg class="bi bi-eye-fill text-secondary" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.5 8a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                        <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7z" clip-rule="evenodd"/>
+                    </svg>
+                    <small class="text-muted"><%= post.impressionist_count %></small>&nbsp;&nbsp;
+                        <svg class="bi bi-chat-square-dots-fill text-secondary" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M0 2a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2h-2.5a1 1 0 00-.8.4l-1.9 2.533a1 1 0 01-1.6 0L5.3 12.4a1 1 0 00-.8-.4H2a2 2 0 01-2-2V2zm5 4a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm3 1a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+                    </svg>
+                    <small class="text-muted"><%= Comment.where(post_id: post.id).count %></small>
+                </div>
             </div>
         </div>
     </div>
